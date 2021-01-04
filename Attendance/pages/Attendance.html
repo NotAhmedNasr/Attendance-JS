@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Attendance</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/aec30c4a05.js" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <h1 class="text-center bg-light">Attendance Page</h1>
+    <div id="closed">
+        <h1 class="text-center text-danger mt-5">System opens from 8:00 AM to 10:00 PM</h1>
+    </div>
+    <div class="container pt-5 d-none" id="attend-div">
+        <div>
+            <h3 class="text-center">Time remaining until system close:
+                <span id="timer" class="border border-primary ml-5 d-inline-block w-25"></span>
+            </h3>
+        </div>
+        <form class="needs-validation offset-3 col-6 mt-5">
+            <div class="form-group">
+                <label for="#username">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="EX: AhMa151617" required>
+                <div class="invalid-feedback">
+                    Username not found
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-primary" id="confirm">Confirm Attendance</button>
+            </div>
+        </form>
+        <div class="text-center mt-5">
+            <button type="button" class="btn btn-primary btn-lg" id="save">Save All
+                <span class="text-light ml-1"><i class="fa fa-download" aria-hidden="true"></i></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="confirm" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <table class="table text-center table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Arrival</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="fullname"></td>
+                                    <td id="arrival"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="alreadyTaken" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-danger font-weight-bold h2">
+                    Attendance for this username has already been taken
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="../js/attendance.js" type="module"></script>
+</body>
+
+</html>

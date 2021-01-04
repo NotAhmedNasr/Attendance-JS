@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Profile Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="../js/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <div class="container pt-5 p-md-5" id="main">
+        <div class="card">
+            <div class="card-header text-center" id="infohead">
+                <button type="button" class="btn btn-primary float-left d-none" id="toAttendance">Take Attendance</button>
+                <h5 class="mb-0 btn-lg font-weight-bold d-inline-block">
+                    Account Info
+                </h5>
+                <button type="button" id="logout" class="btn btn-primary float-right ">Logout</button>
+            </div>
+            <div class="card-body">
+                <div class="container row info">
+                    <div class="col-md-6">
+                        <label for="#fname">First Name: </label>
+                        <span id="fname"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="#lname">Last Name: </label>
+                        <span id="lname"></span>
+                    </div>
+                    <div class="col-12">
+                        <label for="#address">Address: </label>
+                        <span id="address"></span>
+                    </div>
+                    <div class="col-12">
+                        <label for="#email">Email: </label>
+                        <span id="email"></span>
+                    </div>
+                    <div class="col-12">
+                        <label for="#age">Age: </label>
+                        <span id="age"></span>
+                    </div>
+                    <div class="col-12">
+                        <label for="#username">Username: </label>
+                        <span id="username"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="empAccord" role="tablist" aria-multiselectable="true" class="mt-5">
+            <div class="card">
+                <div class="card-header text-center" role="tab" id="reports-head">
+                    <h5 class="mb-0">
+                        <a data-toggle="collapse" href="#reports-data" aria-expanded="true" aria-controls="reports-data"
+                            class="btn btn-info btn-lg font-weight-bold">
+                            Attendance Reports
+                        </a>
+                    </h5>
+                </div>
+                <div id="reports-data" class="collapse in" role="tabpanel" data-parent="#empAccord"
+                    aria-labelledby="reports-head">
+                    <div class="card-body sub-tab">
+                        <div class="tabs pb-0 pl-0">
+                            <button class="tab-button btn btn-info" id="month" onclick="">Monthly Report</button>
+                            <button class="tab-button btn btn-info" id="day" onclick="">Daily Report</button>
+                        </div>
+                        <div id="month-report" class="tab-content container d-none">
+                            <div class="date-pick">
+                                <label for="#month-pick">Choose a Month: </label>
+                                <input type="month" id="month-pick">
+                                <button type="button" class="btn btn-primary" id="show-month">Show</button>
+                            </div>
+                            <div id="month-report-result">
+                                <div>
+                                    <label for="#attendance">Attendance times: </label>
+                                    <span id="attendance"></span>
+                                </div>
+                                <div>
+                                    <label for="#late">Late times: </label>
+                                    <span id="late"></span>
+                                </div>
+                                <div>
+                                    <label for="#absent">Absent times: </label>
+                                    <span id="absent"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="day-report" class="tab-content d-none">
+                            <div class="date-pick">
+                                <label for="#day-pick">Choose a Day: </label>
+                                <input type="date" id="day-pick">
+                                <button type="button" class="btn btn-primary" id="show-day">Show</button>
+                            </div>
+                            <div id="day-report-result">
+                                <div>
+                                    <label for="#arrive-time">Attendance time: </label>
+                                    <span id="arrive-time"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var month = $("#month");
+        var day = $("#day");
+        
+        month.on("click", () => {
+            $("#day-report").addClass("d-none");
+            $("#month-report").removeClass("d-none");
+            month.addClass("active-tab");
+            day.removeClass("active-tab");
+        });
+        day.on("click", () => {
+            $("#month-report").addClass("d-none");
+            $("#day-report").removeClass("d-none");
+            day.addClass("active-tab");
+            month.removeClass("active-tab");
+        });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="../js/Profile.js" type="module"></script>
+</body>
+
+</html>

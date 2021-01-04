@@ -1,0 +1,28 @@
+#main {
+    max-width: 70%;
+    background-color: aliceblue;
+}
+
+.sub-tab {
+    background-color: lightblue;
+}
+
+.tab-content {
+    background-color: white;
+    padding: 2em;
+}
+
+.active-tab {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+.active-tab:hover {
+    background-color: lightblue;
+    color: black;
+}
+
+.info span {
+    margin-left: 3em;
+}

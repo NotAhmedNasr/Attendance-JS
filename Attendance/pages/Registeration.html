@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Registration</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/font-awesome.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="../js/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid pt-3">
+        <h1 class="text-center font-weight-bold bg-light">New User</h1>
+        <div class="container mt-3">
+            <form action="#" method="GET" class="needs-validation" novalidate>
+                <div class="form-row row">
+                    <div class="form-group col-md">
+                        <label for="fname">First name</label>
+                        <input type="text" pattern="^[A-Za-z]+$" class="form-control" name="fname" id="fname"
+                            placeholder="Ex: John" required>
+                        <div class="invalid-feedback">
+                            Only English letters allowed
+                        </div>
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="lname">Last name</label>
+                        <input type="text" pattern="^[A-Za-z]+$" class="form-control" name="lname" id="lname"
+                            placeholder="EX: Carter" required>
+                        <div class="invalid-feedback">
+                            Only english letters allowed
+                        </div>
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="age">Age</label>
+                        <input type="number" min="20" max="40" class="form-control" name="age" id="age" placeholder="EX: 25"
+                            required>
+                        <div class="invalid-feedback">
+                            Age must be between 20 and 40
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" pattern="\d{1,5}\s[a-zA-Z\s]+" name="address" id="address"
+                        placeholder="EX: 32 Plam street Cairo" required>
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" class="form-control"
+                        name="email" id="email" placeholder="EX: login@domain.com" required>
+                    <div class="invalid-feedback">
+                        Invalid email address
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+                <div class="text-center">
+                    <small>Already have an account? <a href="Login.html" target="_blank">Login</a> Instead!</small>
+                </div>
+            </form>
+        </div>
+        <div class="text-center mb-5 mt-5">
+            <button type="button" class="btn btn-primary btn-lg font-weight-bold" id="save">
+                Save Changes
+            </button>
+        </div>
+    </div>
+    
+    <!-- Email already exists -->
+    <div class="modal fade" id="emailExists" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">Email Check</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                <div class="modal-body">
+                    <div class="container-fluid text-center text-danger font-weight-bold">
+                        Email already exists.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $('#exampleModal').on('show.bs.modal', event => {
+            var button = $(event.relatedTarget);
+            var modal = $(this);
+            // Use above variables to manipulate the DOM
+            
+        });
+    </script>
+    <script type="module" src="../js/register.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
