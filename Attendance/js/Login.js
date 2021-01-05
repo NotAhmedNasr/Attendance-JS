@@ -1,4 +1,4 @@
-import { loadEmployeesData, employeesData, checkUsername } from "./Loaders.js";
+import { loadEmployeesData, employeesData, checkUsername } from "./Helpers.js";
 
 const ADMIN = {
     username: "admin",
@@ -22,27 +22,35 @@ function loginHandler(e) {
 
     var checkedUser = checkUsername(username.val(), employeesData);
     if (checkedUser) {    // If user exists 
-        username.addClass("is-valid").removeClass("is-invalid");
-        if (checkPassword(checkedUser, password.val())) {  // If password is correct
-            loginForm.attr("action", "Profile.html");
-            initializeSession(username.val());
-            loginForm.trigger("submit");
-        }
-        else {
-            password.addClass("is-invalid").removeClass("is-valid");  // Display invalid password feedback
-        }
+        checkUserPassword(username, checkedUser, password, loginForm);
     }
     else if (username.val() == ADMIN.username) {
-        if (password.val() == ADMIN.password) {
-            loginForm.attr("action", "Admin.html");
-            initializeSession(username.val());
-            loginForm.trigger("submit");
-        } else {
-            password.addClass("is-invalid").removeClass("is-valid");  // Display invalid password feedback
-        }
+        checkAdminPassword(password, loginForm, username);
     } else {
         username.addClass("is-invalid").removeClass("is-valid"); // Display invalid username feedback
         password.val("").removeClass("is-valid").removeClass("is-invalid");
+    }
+}
+
+function checkUserPassword(username, checkedUser, password, loginForm) {
+    username.addClass("is-valid").removeClass("is-invalid");
+    if (checkPassword(checkedUser, password.val())) { // If password is correct
+        loginForm.attr("action", "Profile.html");
+        initializeSession(username.val());
+        loginForm.trigger("submit");
+    }
+    else {
+        password.addClass("is-invalid").removeClass("is-valid");
+    }
+}
+
+function checkAdminPassword(password, loginForm, username) {
+    if (password.val() == ADMIN.password) {
+        loginForm.attr("action", "Admin.html");
+        initializeSession(username.val());
+        loginForm.trigger("submit");
+    } else {
+        password.addClass("is-invalid").removeClass("is-valid");
     }
 }
 

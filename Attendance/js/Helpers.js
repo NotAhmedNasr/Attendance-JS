@@ -1,4 +1,4 @@
-export let employeesData;
+export let employeesData = [];
 export let requestsData;
 
 export const LATE = "9:00:00 AM";
@@ -82,7 +82,6 @@ export function msToTime(s) {
 export function compareTimes(time1, time2) {
     time1 = time1.split(':');
     time2 = time2.split(':');
-    debugger;
     if (time1[2].split(' ')[1] === time2[2].split(' ')[1]) {
         if (+time1[0] === +time2[0]) {
             if (+time1[1] === +time2[1]) {
@@ -97,7 +96,7 @@ export function compareTimes(time1, time2) {
                 return 1;
             } else {
                 return -1;
-            }    
+            }
         } else if (+time1[0] > +time2[0]) {
             return 1;
         } else {
@@ -108,4 +107,38 @@ export function compareTimes(time1, time2) {
     } else {
         return -1;
     }
+}
+
+export function getDateComponents(selector) {
+    var date = $(selector).val().split("-");
+    return {
+        year: Number(date[0]),
+        month: Number(date[1]),
+        day: Number(date[2]) ? Number(date[2]) : undefined
+    };
+}
+
+export function prepareMonthReport(username, attendanceData, { year, month }) {
+    var attendance = 0, absent = 0, late = 0;
+    var months = attendanceData[year];
+    if (months) {
+        var days = months[month];
+        if (days) {
+            for (const [day, users] of Object.entries(days)) {
+                let time = users[username];
+                if (time) {
+                    if (compareTimes(time, SYSTEM_CLOSE + ':30:00 AM') >= 0) {
+                        absent++;
+
+                    } else if (compareTimes(time, LATE) > 0) {
+                        late++;
+                    } else {
+                        attendance++;
+                    }
+                }
+            }
+            return { attendance, late, absent };
+        }
+    }
+    return { attendance, late, absent };
 }

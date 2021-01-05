@@ -1,8 +1,15 @@
-import { loadEmployeesData, loadRequestsData, employeesData, requestsData, checkUsername, saveJSONFile } from "./Loaders.js";
+import { loadEmployeesData, loadRequestsData, employeesData, requestsData, getDateComponents, checkUsername, saveJSONFile, loadJSONFile, prepareMonthReport } from "./Helpers.js";
 import { Employee } from "./Employee.js";
-$(document).ready(function () {
+
+let attendanceData;
+
+$(document).ready(async function () {
     loadRequestsData();
     loadEmployeesData();
+    loadJSONFile("../data/Attendance.json", (response) => {
+        attendanceData = response;
+        console.log(attendanceData);
+    });
     $("#incoming").on("click", function (e) {
         displayRequests();
     });
@@ -12,6 +19,9 @@ $(document).ready(function () {
     $("#show-employees").on("click", showEmployees);
     $("#confirm-sub").on("click", confirmSub);
     $("#assign-btn").on("click", assignBtnHandler);
+    $("#show-month-full").on("click", getFullReport);
+    $("#show-month-late").on("click", getLateReport);
+    $("#show-month-execuse").on("click", getExecuseReport);
 });
 
 function displayRequests() {
@@ -114,16 +124,16 @@ let loadedEmpData = false;
 function showEmployees() {
     if (!loadedEmpData) {
         loadedEmpData = true;
-        //fillEmployeesData(employeesData);
-        $("#emp-data table").dataTable({
+        $("#emp-data table").removeClass('d-none').dataTable({
             data: employeesData,
-            columns : [
-                {data: "fname"},
-                {data: "address"},
-                {data: "email"},
-                {data: "age"},
-                {data: "username"}
-            ]
+            columns: [
+                { data: "fname" },
+                { data: "address" },
+                { data: "email" },
+                { data: "age" },
+                { data: "username" }
+            ],
+            destroy: true
         });
     }
 }
@@ -150,4 +160,53 @@ function getCurrentSubAdmin() {
 
 function assignBtnHandler(e) {
     $("#sub-username").val(getCurrentSubAdmin().username);
+}
+
+function getFullReport(e) {
+    const report = mapAttendanceData("#month-pick-full");
+    $("#full-report table").removeClass('d-none').dataTable({
+        data: report,
+        columns: [
+            { data: "name" },
+            { data: "report.attendance" },
+            { data: "report.late" },
+            { data: "report.absent" },
+            { data: "report.absent" }
+        ],
+        destroy: true
+    });
+}
+
+function getLateReport(e) {
+    const report = mapAttendanceData("#month-pick-late");
+    console.log(report);
+    $("#late-report table").removeClass('d-none').dataTable({
+        data: report,
+        columns: [
+            { data: "name" },
+            { data: "report.late" }
+        ],
+        destroy: true
+    });
+}
+
+function getExecuseReport(e) {
+    const report = mapAttendanceData("#month-pick-execuse");
+    $("#excuse-report table").removeClass('d-none').dataTable({
+        data: report,
+        columns: [
+            { data: "name" },
+            { data: "report.late" }
+        ],
+        destroy: true
+    });
+}
+
+function mapAttendanceData(selector) {
+    return employeesData.map((emp) => {
+        return {
+            name: emp.fname + ' ' + emp.lname,
+            report: prepareMonthReport(emp.username, attendanceData, getDateComponents(selector))
+        }
+    });
 }

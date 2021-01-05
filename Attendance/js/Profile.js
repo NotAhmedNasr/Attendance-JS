@@ -1,4 +1,4 @@
-import { loadEmployeesData, employeesData, loadJSONFile, LATE, SYSTEM_CLOSE, compareTimes } from "./Loaders.js";
+import { loadEmployeesData, employeesData, loadJSONFile, prepareMonthReport, getDateComponents } from "./Helpers.js";
 
 let attendanceData;
 let user = sessionStorage.getItem("user");
@@ -47,7 +47,7 @@ function AttendanceHandler(e) {
 function showMonthhandler(e) {
     fillMonthData("No Data", "No Data", "No Data");
     var date = getDateComponents("#month-pick");
-    var attendanceReport = prepareMonthReport(user, date);
+    var attendanceReport = prepareMonthReport(user, attendanceData, date);
     if (attendanceReport) {
         fillMonthData(attendanceReport);
     }
@@ -77,15 +77,6 @@ function fillEmployeeData({ fname, lname, address, email, age, username }) {
     $("#username").text(username);
 }
 
-function getDateComponents(selector) {
-    var date = $(selector).val().split("-");
-    return {
-        year: Number(date[0]),
-        month: Number(date[1]),
-        day: Number(date[2]) ? Number(date[2]) : undefined
-    };
-}
-
 function getArriveTime(username, { year, month, day }) {
     var months = attendanceData[year];
     if (months) {
@@ -100,30 +91,4 @@ function getArriveTime(username, { year, month, day }) {
         return false;
     }
     return false;
-}
-
-function prepareMonthReport(username, attendanceData, { year, month }) {
-    var attendance = 0, absent = 0, late = 0;
-    var months = attendanceData[year];
-    if (months) {
-        var days = months[month];
-        if (days) {
-            for (const [day, users] of Object.entries(days)) {
-                let time = users[username];
-                if (time) {
-                    if (compareTimes(time, SYSTEM_CLOSE + ':30:00 AM') >= 0) {
-                        absent++;
-
-                    } else if (compareTimes(time, LATE) > 0) {
-                        late++;
-                    } else {
-                        attendance++;
-                    }
-                }
-            }
-            return { attendance, late, absent };
-        }
-    }
-
-    return { attendance, late, absent };
 }

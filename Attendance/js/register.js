@@ -1,4 +1,4 @@
-import { loadEmployeesData, loadRequestsData, employeesData, requestsData, saveJSONFile } from "./Loaders.js";
+import { loadEmployeesData, loadRequestsData, employeesData, requestsData, saveJSONFile } from "./Helpers.js";
 import { NewEmployee } from "./Employee.js";
 
 $(document).ready(function () {
@@ -11,20 +11,20 @@ $(document).ready(function () {
 
 function registerHandler(e) {
     var email = $("#email");
-    if (e.target.checkValidity() === false) {
-        e.preventDefault();
-        e.stopPropagation();
-    } else if (checkIfEmailExists(email.val(), employeesData) || checkIfEmailExists(email.val(), requestsData)) {
-        e.preventDefault();
-        e.stopPropagation();
-        $("#emailExists").modal("show");
-        email.val("");
-    } else {
-        var request = makeNewEmployee();
-        requestsData.push(request);
-        e.preventDefault();
-        e.stopPropagation();
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (e.target.checkValidity() === true) {
+        if (checkIfEmailExists(email.val(), employeesData) || checkIfEmailExists(email.val(), requestsData)) {
+            $("#emailExists").modal("show");
+            email.val("");
+        } else {
+            var request = makeNewEmployee();
+            requestsData.push(request);
+        }
     }
+    
     $(e.target).addClass("was-validated");
 }
 

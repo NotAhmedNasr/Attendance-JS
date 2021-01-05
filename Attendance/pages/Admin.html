@@ -15,22 +15,24 @@
     <script src="../js/jquery-3.5.1.js"></script>
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/v/dt/dt-1.10.23/r-2.2.6/datatables.min.css" />
-
+    <script src="https://kit.fontawesome.com/aec30c4a05.js" crossorigin="anonymous"></script>
     <script src="../js/admin.js" type="module"></script>
 </head>
 
-<body>
+<body style="min-width: 1000px;">
     <div class="container pt-3">
         <h1 class="text-center bg-light mb-5">Administration</h1>
         <div id="choose-sub-admin" class="text-center mb-5">
             <button type="button" id="assign-btn" class="btn btn-primary btn-lg font-weight-bold" data-toggle="modal"
                 data-target="#assign-modal">
                 Assign Attendance Official
+                <i class="fas fa-address-card ml-2"></i>
             </button>
         </div>
         <div class="text-center mb-5">
             <button type="button" class="btn btn-primary btn-lg font-weight-bold" id="save">
                 Save Changes
+                <span class="text-light ml-1"><i class="fa fa-download" aria-hidden="true"></i></span>
             </button>
         </div>
         <h2 class="text-center p-2 mb-4">Employees Reports</h2>
@@ -46,7 +48,7 @@
                     onclick="">Excuse</button>
             </div>
             <div id="emp-data" class="col-md-12 tab-content text-center">
-                <table class="table table-bordered table-responsive">
+                <table class="table table-bordered table-responsive d-none">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -59,7 +61,12 @@
                 </table>
             </div>
             <div id="full-report" class="col-8 col-md-12 tab-content text-center">
-                <table class="table table-bordered table-responsive">
+                <div class="date-pick">
+                    <label for="#month-pick">Choose a Month: </label>
+                    <input type="month" id="month-pick-full">
+                    <button type="button" class="btn btn-primary" id="show-month-full">Show</button>
+                </div>
+                <table class="table table-bordered table-responsive d-none">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -72,7 +79,12 @@
                 </table>
             </div>
             <div id="late-report" class="col-8 col-md-12 tab-content text-center">
-                <table class="table table-bordered">
+                <div class="date-pick">
+                    <label for="#month-pick">Choose a Month: </label>
+                    <input type="month" id="month-pick-late">
+                    <button type="button" class="btn btn-primary" id="show-month-late">Show</button>
+                </div>
+                <table class="table table-bordered table-responsive d-none">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -82,7 +94,12 @@
                 </table>
             </div>
             <div id="excuse-report" class="col-8 col-md-12 tab-content text-center">
-                <table class="table table-bordered">
+                <div class="date-pick">
+                    <label for="#month-pick">Choose a Month: </label>
+                    <input type="month" id="month-pick-execuse">
+                    <button type="button" class="btn btn-primary" id="show-month-execuse">Show</button>
+                </div>
+                <table class="table table-bordered table-responsive d-none">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -96,7 +113,9 @@
         <div id="requests" class="container offset-3 col-6">
             <div class="text-center">
                 <button type="button" id="incoming" class="btn btn-primary btn-lg font-weight-bold">Incoming
-                    Requests</button>
+                    Requests
+                    <i class="fas fa-inbox"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -112,11 +131,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="container-fluid">                            
+                    <div class="container-fluid">
                         <div id="choose" class="text-center">
                             <input type="text" id="sub-username" class="form-control" placeholder="Sub-Admin Username">
                             <div class="invalid-feedback">Username doesn't exist</div>
-                            <button type="button" id="confirm-sub" class="btn btn-primary mt-2">Confirm</button>
+                            <button type="button" id="confirm-sub" class="btn btn-primary mt-2">Confirm
+                                <i class="fas fa-check-double"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

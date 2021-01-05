@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/profile.css">
+    <script src="https://kit.fontawesome.com/aec30c4a05.js" crossorigin="anonymous"></script>
     <script src="../js/jquery-3.5.1.js"></script>
 </head>
 
@@ -18,11 +19,15 @@
     <div class="container pt-5 p-md-5" id="main">
         <div class="card">
             <div class="card-header text-center" id="infohead">
-                <button type="button" class="btn btn-primary float-left d-none" id="toAttendance">Take Attendance</button>
+                <button type="button" class="btn btn-primary float-left d-none" id="toAttendance">Take Attendance
+                    <i class="fas fa-pen-fancy"></i>
+                </button>
                 <h5 class="mb-0 btn-lg font-weight-bold d-inline-block">
                     Account Info
                 </h5>
-                <button type="button" id="logout" class="btn btn-primary float-right ">Logout</button>
+                <button type="button" id="logout" class="btn btn-primary float-right ">Logout
+                    <i class="fas fa-door-open"></i>
+                </button>
             </div>
             <div class="card-body">
                 <div class="container row info">
@@ -60,6 +65,7 @@
                         <a data-toggle="collapse" href="#reports-data" aria-expanded="true" aria-controls="reports-data"
                             class="btn btn-info btn-lg font-weight-bold">
                             Attendance Reports
+                            <i class="fas fa-file-alt ml-2"></i>
                         </a>
                     </h5>
                 </div>
