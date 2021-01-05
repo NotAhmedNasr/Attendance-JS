@@ -8,10 +8,12 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    min-height: 60em;
 }
 
 #emp-reports {
     background-color: aliceblue;
+    min-height: 20em;
 }
 
 .tab-content {
@@ -31,9 +33,10 @@ body {
 
 .request {
     border: 1px solid lightblue;
-    border-radius: 10px;
     margin: 10px;
     padding: 10px;
+    color: white;
+    background-color:  rgba(242, 244, 245, 0.3);;
 }
 
 .request label {
@@ -43,4 +46,10 @@ body {
 .request span {
     
     margin-left: 1em;
+}
+
+#requests {
+    overflow-y: scroll;
+    overflow-x: auto;
+    max-height: 30em;
 }

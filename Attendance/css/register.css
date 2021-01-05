@@ -1,5 +1,5 @@
 .container {
-    background-color: rgba(242, 244, 245, 0.3);
+    background-color: rgba(242, 244, 245, 0.4);
     padding: 20px;
 }
 
@@ -8,4 +8,16 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+
+label {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: teal;
+}
+
+#anchor {
+    color: lightblue;
+    font-style: italic;
 }

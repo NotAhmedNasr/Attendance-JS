@@ -12,20 +12,25 @@ $(document).ready(function () {
 function registerHandler(e) {
     var email = $("#email");
 
-    e.preventDefault();
-    e.stopPropagation();
-
     if (e.target.checkValidity() === true) {
         if (checkIfEmailExists(email.val(), employeesData) || checkIfEmailExists(email.val(), requestsData)) {
             $("#emailExists").modal("show");
             email.val("");
+            e.preventDefault();
+            e.stopPropagation();
         } else {
             var request = makeNewEmployee();
             requestsData.push(request);
+            $(e.target).removeClass("was-validated");
+            $("#waitMessage").modal('show');
         }
+    } else {
+        e.preventDefault();
+        e.stopPropagation();
+        $(e.target).addClass("was-validated");
     }
-    
-    $(e.target).addClass("was-validated");
+
+
 }
 
 function checkIfEmailExists(email, data) {

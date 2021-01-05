@@ -19,7 +19,7 @@
     <div class="container-fluid pt-3">
         <h1 class="text-center font-weight-bold text-light">Registration</h1>
         <div class="container mt-3 col-md-6 p-4">
-            <form action="#" method="GET" class="needs-validation" novalidate>
+            <form action="mailto:admin@admin.admin" method="POST" enctype="text/plain" class="needs-validation" novalidate>
                 <div class="form-row row">
                     <div class="form-group col-md">
                         <label for="fname">First name</label>
@@ -39,8 +39,8 @@
                     </div>
                     <div class="form-group col-md">
                         <label for="age">Age</label>
-                        <input type="number" min="20" max="40" class="form-control" name="age" id="age" placeholder="EX: 25"
-                            required>
+                        <input type="number" min="20" max="40" class="form-control" name="age" id="age"
+                            placeholder="EX: 25" required>
                         <div class="invalid-feedback">
                             Age must be between 20 and 40
                         </div>
@@ -68,7 +68,8 @@
                     </button>
                 </div>
                 <div class="text-center">
-                    <small>Already have an account? <a href="Login.html" target="_blank">Login</a> Instead!</small>
+                    <small class="text-light">Already have an account? <a href="Login.html" id="anchor"
+                            target="_blank">Login<i class="fas fa-sign-in-alt ml-1"></i> </a> Instead!</small>
                 </div>
             </form>
             <div class="text-center mb-5 mt-5">
@@ -79,17 +80,18 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Email already exists -->
-    <div class="modal fade" id="emailExists" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal fade" id="emailExists" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                    <div class="modal-header">
-                            <h5 class="modal-title">Email Check</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                        </div>
+                <div class="modal-header">
+                    <h5 class="modal-title">Email Check</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="modal-body">
                     <div class="container-fluid text-center text-danger font-weight-bold">
                         Email already exists.
@@ -101,13 +103,37 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="modal fade" id="waitMessage" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Success</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid text-center text-danger font-weight-bold">
+                        <h3 class="text-success">
+                            Request has been sent successfully. <br> Wait for a confirmation email from the adminstration.
+                        </h3>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         $('#exampleModal').on('show.bs.modal', event => {
             var button = $(event.relatedTarget);
             var modal = $(this);
             // Use above variables to manipulate the DOM
-            
+
         });
     </script>
     <script type="module" src="../js/register.js"></script>
