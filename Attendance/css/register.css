@@ -1,5 +1,11 @@
 .container {
-    max-width: 50%;
-    background-color: aliceblue;
+    background-color: rgba(242, 244, 245, 0.3);
     padding: 20px;
+}
+
+body {
+    background-image: url("../imgs/bg5.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }

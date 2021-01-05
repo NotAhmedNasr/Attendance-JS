@@ -1,0 +1,17 @@
+body {
+  background-image: url("../imgs/bg5.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#timer {
+  padding: 0.1em 1em;
+  background-color: rgba(242, 244, 245, 0.3);
+  border-radius: 1em;
+}
+
+.needs-validation {
+  background-color: rgba(242, 244, 245, 0.5);
+  padding: 2em 1em;
+}

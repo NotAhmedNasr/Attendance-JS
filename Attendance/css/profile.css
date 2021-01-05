@@ -3,6 +3,13 @@
     background-color: aliceblue;
 }
 
+body {
+    background-image: url("../imgs/bg5.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .sub-tab {
     background-color: lightblue;
 }

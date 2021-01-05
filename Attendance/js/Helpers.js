@@ -2,8 +2,8 @@ export let employeesData = [];
 export let requestsData;
 
 export const LATE = "9:00:00 AM";
-export const SYSTEM_OPEN = "8";
-export const SYSTEM_CLOSE = "10";
+export const SYSTEM_OPEN = "12";
+export const SYSTEM_CLOSE = "16";
 
 export function loadEmployeesData() {
     var url = "../data/Employees.json";
