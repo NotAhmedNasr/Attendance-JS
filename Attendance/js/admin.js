@@ -21,7 +21,7 @@ $(document).ready(async function () {
     $("#assign-btn").on("click", assignBtnHandler);
     $("#show-month-full").on("click", getFullReport);
     $("#show-month-late").on("click", getLateReport);
-    $("#show-month-execuse").on("click", getExecuseReport);
+    $("#show-month-excuse").on("click", getExcuseReport);
 });
 
 function displayRequests() {
@@ -133,7 +133,8 @@ function showEmployees() {
                 { data: "age" },
                 { data: "username" }
             ],
-            destroy: true
+            destroy: true,
+            scrollX: true
         });
     }
 }
@@ -171,9 +172,10 @@ function getFullReport(e) {
             { data: "report.attendance" },
             { data: "report.late" },
             { data: "report.absent" },
-            { data: "report.absent" }
+            { data: "report.excuse" }
         ],
-        destroy: true
+        destroy: true,
+        scrollX: true
     });
 }
 
@@ -186,19 +188,21 @@ function getLateReport(e) {
             { data: "name" },
             { data: "report.late" }
         ],
-        destroy: true
+        destroy: true,
+        scrollX: true
     });
 }
 
-function getExecuseReport(e) {
-    const report = mapAttendanceData("#month-pick-execuse");
+function getExcuseReport(e) {
+    const report = mapAttendanceData("#month-pick-excuse");
     $("#excuse-report table").removeClass('d-none').dataTable({
         data: report,
         columns: [
             { data: "name" },
-            { data: "report.late" }
+            { data: "report.excuse" }
         ],
-        destroy: true
+        destroy: true,
+        scrollX: true
     });
 }
 

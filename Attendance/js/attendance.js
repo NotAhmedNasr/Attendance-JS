@@ -6,6 +6,7 @@ $(document).ready(function () {
     loadEmployeesData();
     loadJSONFile("../data/Attendance.json", getAttendanceData);
     $("#confirm").on("click", confirmHandler);
+    $("#excuse").on("click", confirmHandler);
     $("#save").on("click", saveAllHandler);
     StartTimer();
 });
@@ -19,13 +20,15 @@ function confirmHandler(e) {
     var confirmationModal = $("#confirmation");
     var employee = checkUsername(username.val(), employeesData);
     let arrival = new Date();
+    
     if (employee) {
-        if (!saveEmployeeAttendance(username.val(), arrival)) {
+        const savedTime = saveEmployeeAttendance(username.val(), arrival, e.target);
+        if (!savedTime) {
             $("#alreadyTaken").modal("show");
         } else {
             username.removeClass("is-invalid").addClass("is-valid");
             $("#fullname").text(employee.fname + " " + employee.lname);
-            $("#arrival").text(arrival.toLocaleTimeString());
+            $("#arrival").text(savedTime);
             confirmationModal.modal("show");
         }
     } else {
@@ -33,11 +36,12 @@ function confirmHandler(e) {
     }
 }
 
-function saveEmployeeAttendance(username, date) {
+function saveEmployeeAttendance(username, date, button) {
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
-    let time = date.toLocaleTimeString();
+    let time = button.id === 'confirm' ? date.toLocaleTimeString() : 'excuse';
+    console.log(button, time);
     if (!attendanceData[year]) {
         attendanceData[year] = {
             [month]: {
@@ -61,7 +65,7 @@ function saveEmployeeAttendance(username, date) {
     } else {
         attendanceData[year][month][day][username] = time;
     }
-    return true;
+    return time;
 }
 
 function saveAllHandler(e) {

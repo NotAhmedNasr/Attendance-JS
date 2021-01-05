@@ -2,8 +2,8 @@ export let employeesData = [];
 export let requestsData;
 
 export const LATE = "9:00:00 AM";
-export const SYSTEM_OPEN = "16";
-export const SYSTEM_CLOSE = "9";
+export const SYSTEM_OPEN = "8";
+export const SYSTEM_CLOSE = "10";
 
 export function loadEmployeesData() {
     var url = "../data/Employees.json";
@@ -119,7 +119,7 @@ export function getDateComponents(selector) {
 }
 
 export function prepareMonthReport(username, attendanceData, { year, month }) {
-    var attendance = 0, absent = 0, late = 0;
+    var attendance = 0, absent = 0, late = 0, excuse = 0;
     var months = attendanceData[year];
     if (months) {
         var days = months[month];
@@ -127,7 +127,9 @@ export function prepareMonthReport(username, attendanceData, { year, month }) {
             for (const [day, users] of Object.entries(days)) {
                 let time = users[username];
                 if (time) {
-                    if (compareTimes(time, SYSTEM_CLOSE + ':30:00 AM') >= 0) {
+                    if (time === 'excuse') {
+                        excuse++;
+                    } else if (compareTimes(time, SYSTEM_CLOSE + ':30:00 AM') >= 0) {
                         absent++;
 
                     } else if (compareTimes(time, LATE) > 0) {
@@ -137,8 +139,8 @@ export function prepareMonthReport(username, attendanceData, { year, month }) {
                     }
                 }
             }
-            return { attendance, late, absent };
+            return { attendance, late, absent, excuse };
         }
     }
-    return { attendance, late, absent };
+    return { attendance, late, absent, excuse };
 }
