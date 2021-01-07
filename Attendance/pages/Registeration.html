@@ -23,18 +23,18 @@
                 <div class="form-row row">
                     <div class="form-group col-md">
                         <label for="fname">First name</label>
-                        <input type="text" pattern="^[A-Za-z]+$" class="form-control" name="fname" id="fname"
+                        <input type="text" pattern="^[A-Za-z]{3,15}$" class="form-control" name="fname" id="fname"
                             placeholder="Ex: John" required>
                         <div class="invalid-feedback">
-                            Only English letters allowed
+                            Only 3 - 15 letters allowed
                         </div>
                     </div>
                     <div class="form-group col-md">
                         <label for="lname">Last name</label>
-                        <input type="text" pattern="^[A-Za-z]+$" class="form-control" name="lname" id="lname"
+                        <input type="text" pattern="^[A-Za-z]{3,15}$" class="form-control" name="lname" id="lname"
                             placeholder="EX: Carter" required>
                         <div class="invalid-feedback">
-                            Only english letters allowed
+                            Only 3 - 15 letters allowed
                         </div>
                     </div>
                     <div class="form-group col-md">
@@ -51,7 +51,7 @@
                     <input type="text" class="form-control" pattern="\d{1,5}\s[a-zA-Z\s]+" name="address" id="address"
                         placeholder="EX: 32 Plam street Cairo" required>
                     <div class="invalid-feedback">
-                        This field is required
+                        Invalid address
                     </div>
                 </div>
                 <div class="form-group">

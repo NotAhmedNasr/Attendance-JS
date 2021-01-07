@@ -3,14 +3,13 @@ import { Employee } from "./Employee.js";
 
 let attendanceData;
 
-$(document).ready(async function () {
+$(function () {
     loadRequestsData();
     loadEmployeesData();
-    loadJSONFile("../data/Attendance.json", (response) => {
+    loadJSONFile("../data/attendance.json", (response) => {
         attendanceData = response;
-        console.log(attendanceData);
     });
-    $("#incoming").on("click", function (e) {
+    $("#incoming").one("click", function (e) {
         displayRequests();
     });
     $("#requests").on("click", ".accept", acceptHandler);
@@ -63,8 +62,12 @@ function saveAsEmployee(newEmployee) {
         generateUsername(newEmployee),
         generatePassword()
     );
-
     employeesData.push(employee);
+    return {
+        email: employee.email,
+        username: employee.username,
+        password: employee.password
+    }
 }
 
 function generateUsername(employee) {
@@ -91,12 +94,30 @@ function getEmployeeByEmail(email) {
 }
 
 function acceptHandler(e) {
-    var currentRequest = $(e.target).parent().parent();
-    var employeeEmail = currentRequest.children(".actions").attr("id");
+    var { employeeEmail, currentRequest } = getRequest(e);
     var newEmployee = getEmployeeByEmail(employeeEmail);
-    saveAsEmployee(newEmployee);
+    const {email, username, password} = saveAsEmployee(newEmployee);
     currentRequest.slideUp(500);
     removeRequestByEmail(employeeEmail);
+    sendCredintials(email, username, password);
+}
+
+const sendCredintials = function (email, username, password) {
+    var form = document.createElement("form");
+    form.action = `mailto:${email}`;
+    form.method = "POST";
+    form.enctype = "text/plain"
+    form.innerHTML += `<input type='text' name='username' value='${username}'>`;
+    form.innerHTML += `<input type='text' name='password' value='${password}'>`;
+    $("body").append(form);
+    form.submit();
+    $(form).remove();
+}
+
+function getRequest(e) {
+    var currentRequest = $(e.target).parent().parent();
+    var employeeEmail = currentRequest.children(".actions").attr("id");
+    return { employeeEmail, currentRequest };
 }
 
 function removeRequestByEmail(email) {
@@ -109,8 +130,7 @@ function removeRequestByEmail(email) {
 }
 
 function rejectHandler(e) {
-    var currentRequest = $(e.target).parent().parent();
-    var employeeEmail = currentRequest.children(".actions").attr("id");
+    var { employeeEmail, currentRequest } = getRequest(e);
     currentRequest.slideUp(500);
     removeRequestByEmail(employeeEmail);
 }
@@ -160,7 +180,7 @@ function getCurrentSubAdmin() {
 }
 
 function assignBtnHandler(e) {
-    $("#sub-username").val(getCurrentSubAdmin().username);
+    $("#sub-username").val(getCurrentSubAdmin().username).removeClass(["is-valid", "is-invalid"]);
 }
 
 function getFullReport(e) {
@@ -181,7 +201,6 @@ function getFullReport(e) {
 
 function getLateReport(e) {
     const report = mapAttendanceData("#month-pick-late");
-    console.log(report);
     $("#late-report table").removeClass('d-none').dataTable({
         data: report,
         columns: [

@@ -41,7 +41,6 @@ function saveEmployeeAttendance(username, date, button) {
     let month = date.getMonth() + 1;
     let day = date.getDate();
     let time = button.id === 'confirm' ? date.toLocaleTimeString() : 'excuse';
-    console.log(button, time);
     if (!attendanceData[year]) {
         attendanceData[year] = {
             [month]: {
@@ -86,7 +85,6 @@ function StartTimer() {
             now = new Date();
             timeRemaining = closing.getTime() - now.getTime();
             $("#timer").text(msToTime(timeRemaining));
-            console.log(timeRemaining);
             if (timeRemaining <= 0) {
                 clearInterval(timer);
                 setAbsentEmployees();

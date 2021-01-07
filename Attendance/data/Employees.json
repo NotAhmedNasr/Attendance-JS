@@ -1,1 +1,42 @@
-[{"fname":"ahmed","lname":"ali","address":"mahalla","email":"ahmed0alinasr@gmail.com","age":"27","username":"ahma22993","password":"0128115293","subAdmin":false},{"fname":"emp","lname":"one","address":"21 address","email":"empOne@gmail.com","age":"21","username":"empone890","password":190626318,"subAdmin":false},{"fname":"emp","lname":"two","address":"21 address","email":"empTwo@gmail.com","age":"21","username":"emptwo972","password":164658657,"subAdmin":false},{"fname":"mohamed","lname":"Ali","address":"32 mahalla","email":"mhali@gmail.com","age":"30","username":"mohAli7963","password":130345079,"subAdmin":true}]
+[
+    {
+        "fname": "ahmed",
+        "lname": "ali",
+        "address": "mahalla",
+        "email": "ahmed0alinasr@gmail.com",
+        "age": "27",
+        "username": "ahma22993",
+        "password": "0128115293",
+        "subAdmin": true
+    },
+    {
+        "fname": "emp",
+        "lname": "one",
+        "address": "21 address",
+        "email": "empOne@gmail.com",
+        "age": "21",
+        "username": "empone890",
+        "password": 190626318,
+        "subAdmin": false
+    },
+    {
+        "fname": "emp",
+        "lname": "two",
+        "address": "21 address",
+        "email": "empTwo@gmail.com",
+        "age": "21",
+        "username": "emptwo972",
+        "password": 164658657,
+        "subAdmin": false
+    },
+    {
+        "fname": "mohamed",
+        "lname": "Ali",
+        "address": "32 mahalla",
+        "email": "mhali@gmail.com",
+        "age": "30",
+        "username": "mohAli7963",
+        "password": 130345079,
+        "subAdmin": false
+    }
+]

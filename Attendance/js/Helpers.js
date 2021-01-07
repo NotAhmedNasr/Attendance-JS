@@ -129,7 +129,7 @@ export function prepareMonthReport(username, attendanceData, { year, month }) {
                 if (time) {
                     if (time === 'excuse') {
                         excuse++;
-                    } else if (compareTimes(time, SYSTEM_CLOSE + ':30:00 AM') >= 0) {
+                    } else if (compareTimes(time, SYSTEM_CLOSE + ':00:00 AM') >= 0) {
                         absent++;
 
                     } else if (compareTimes(time, LATE) > 0) {

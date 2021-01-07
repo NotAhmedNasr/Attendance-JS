@@ -7,11 +7,17 @@ $(document).ready(function () {
     loadJSONFile("../data/Attendance.json", getAttendanceData);
     setTimeout(() => {
         displayEmployeeInfo();
-    }, 500);
+    }, 100);
     $("#toAttendance").on("click", AttendanceHandler);
     $("#show-month").on("click", showMonthhandler);
     $("#show-day").on("click", showDayhandler);
+    $("#logout").on("click", logout);
 });
+
+function logout(e) {
+    sessionStorage.clear();
+    window.close();
+}
 
 function getAttendanceData(response) {
     attendanceData = response;
