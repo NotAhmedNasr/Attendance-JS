@@ -77,7 +77,7 @@ function StartTimer() {
     let closing = new Date();
     let now = new Date();
     opening.setHours(SYSTEM_OPEN, '0', '0');
-    closing.setHours(SYSTEM_CLOSE, '49', '0');
+    closing.setHours(SYSTEM_CLOSE, '0', '0');
     let open, timeRemaining;
     open = opening.getTime() <= now.getTime() && now.getTime() < closing.getTime();
     if (open) {
@@ -98,6 +98,8 @@ function StartTimer() {
         $("#attend-div").addClass('d-none');
     }
 }
+
+document.DOCUMENT_POSITION_CONTAINED_BY
 
 function setAbsentEmployees() {  
     employeesData.filter((emp) => {

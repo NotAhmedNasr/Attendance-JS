@@ -16,14 +16,14 @@
 </head>
 
 <body>
-    <h1 class="text-center text-light">Attendance Page</h1>
+    <h1 class="text-center text-light mt-3 font-weight-bolder">Attendance</h1>
     <div id="closed">
-        <h1 class="text-center text-info mt-5">System opens from 8:00 AM to 10:00 PM</h1>
+        <h1 class="text-center text-secondary mt-5 bg-light border p-2">System opens from 8:00 AM to 10:00 PM</h1>
     </div>
     <div class="container pt-5 d-none" id="attend-div">
-        <div class="text-warning">
-            <h3 class="text-center">Time remaining until system close:
-                <span id="timer" class="ml-5 d-inline-block text-light"></span>
+        <div class="text-danger">
+            <h3 class="border border-info bg-light p-3 col-md-8 offset-md-2">Time remaining until close:
+                <span id="timer" class="ml-5 d-inline-block text-info"></span>
             </h3>
         </div>
         <form class="needs-validation offset-3 col-6 mt-5">
@@ -35,18 +35,21 @@
                 </div>
             </div>
             <div class="text-center">
-                <button type="button" class="btn btn-primary" id="confirm">Confirm Attendance
+                <button type="button" class="btn btn-primary col-12 d-inline-block col-lg-5 text-primary bg-white" id="confirm">Confirm
                     <i class="fas fa-check-double"></i>
                 </button>
-                <button type="button" class="btn btn-primary mt-2 mt-lg-0 ml-md-3" id="excuse">Set Excuse
+                <button type="button" class="btn btn-primary mt-2 mt-lg-0 ml-lg-3 d-inline-block col-12 col-lg-5 text-primary bg-white" id="excuse">Set Excuse
                     <i class="fas fa-check-double"></i>
                 </button>
             </div>
         </form>
         <div class="text-center mt-5">
-            <button type="button" class="btn btn-primary btn-lg" id="save">Save All
-                <span class="text-light ml-1"><i class="fa fa-download" aria-hidden="true"></i></span>
+            <button type="button" class="btn btn-primary btn-lg text-primary bg-white" id="save">Save All
+                <span class="text-light ml-1"><i class="fa fa-download text-primary" aria-hidden="true"></i></span>
             </button>
+        </div>
+        <div class="p-5">
+
         </div>
     </div>
 

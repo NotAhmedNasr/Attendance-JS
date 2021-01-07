@@ -29,23 +29,23 @@ function displayRequests() {
         var requestHtmlString = `<div class="request container row">
             <div class="col-md-6">
                 <label>First Name: </label>
-                <span>${requestsData[i].fname}</span>
+                <span class="form-control">${requestsData[i].fname}</span>
             </div>
             <div class="col-md-6">
                 <label>Last Name: </label>
-                <span>${requestsData[i].lname}</span>
+                <span class="form-control">${requestsData[i].lname}</span>
             </div>
             <div class="col-12">
                 <label>Address: </label>
-                <span>${requestsData[i].address}</span>
+                <span class="form-control">${requestsData[i].address}</span>
             </div>
             <div class="col-12">
                 <label>Email: </label>
-                <span>${requestsData[i].email}</span>
+                <span class="form-control">${requestsData[i].email}</span>
             </div>
             <div class="col-12">
                 <label>Age: </label>
-                <span>${requestsData[i].age}</span>
+                <span class="form-control">${requestsData[i].age}</span>
             </div>
             <div class="offset-2 col-8 text-center actions" id=${requestsData[i].email}>
                 <button type="button" class="btn btn-success accept">Accept</button>

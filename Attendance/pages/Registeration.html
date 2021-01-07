@@ -17,7 +17,7 @@
 
 <body>
     <div class="container-fluid pt-3">
-        <h1 class="text-center font-weight-bold text-light">Registration</h1>
+        <h1 class="text-center font-weight-bold">Registration</h1>
         <div class="container mt-3 col-md-6 p-4">
             <form action="mailto:admin@admin.admin" method="POST" enctype="text/plain" class="needs-validation" novalidate>
                 <div class="form-row row">
@@ -62,22 +62,28 @@
                         Invalid email address
                     </div>
                 </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Register
+                <div class="container row bg-transparent ml-1">
+                    <button type="submit" class="btn btn-primary col-3 offset-2">Register
                         <i class="fas fa-file-signature"></i>
+                    </button>
+                    <button type="reset" class="btn btn-primary col-3 offset-2">
+                        Cancel
                     </button>
                 </div>
                 <div class="text-center">
-                    <small class="text-light">Already have an account? <a href="Login.html" id="anchor"
-                            target="_blank">Login<i class="fas fa-sign-in-alt ml-1"></i> </a> Instead!</small>
+                    <small class="text-dark">Already have an account? <a href="Login.html" id="anchor"
+                            class="text-primary" target="_blank">Login<i class="fas fa-sign-in-alt ml-1"></i> </a> Instead!</small>
                 </div>
             </form>
-            <div class="text-center mb-5 mt-5">
+            <div class="text-center mt-5">
                 <button type="button" class="btn btn-primary btn-lg font-weight-bold" id="save">
                     Save Changes
                     <span class="text-light ml-1"><i class="fa fa-download" aria-hidden="true"></i></span>
                 </button>
             </div>
+        </div>
+        <div class="p-5">
+
         </div>
     </div>
 

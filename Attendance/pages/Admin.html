@@ -19,24 +19,11 @@
 </head>
 
 <body>
-    <div class="container pt-3">
-        <h1 class="text-center bg-light mb-5">Administration</h1>
-        <div id="choose-sub-admin" class="text-center mb-5">
-            <button type="button" id="assign-btn" class="btn btn-primary btn-lg font-weight-bold" data-toggle="modal"
-                data-target="#assign-modal">
-                Assign Attendance Official
-                <i class="fas fa-address-card ml-2"></i>
-            </button>
-        </div>
-        <div class="text-center mb-5">
-            <button type="button" class="btn btn-primary btn-lg font-weight-bold" id="save">
-                Save Changes
-                <span class="text-light ml-1"><i class="fa fa-download" aria-hidden="true"></i></span>
-            </button>
-        </div>
-        <h2 class="text-center p-2 mb-4 text-light">Employees Reports</h2>
-        <div class="container mb-5 pl-0 pr-0" id="emp-reports">
-            <div class="tabs text-center container row">
+    <h1 class="text-center text-light font-weight-bold mb-3 pt-3">Administration</h1>
+    <div class="container-fluid row m-0 p-2">
+        <div class="container-fluid mb-5 pl-0 pr-0 col-12 col-lg-8" id="emp-reports">
+            <h2 class="text-center p-2 mb-4 col-8 offset-2 col-lg-6 offset-lg-3" id="reports-header">Attendance Reports</h2>
+            <div class="tabs text-center container row col-12">
                 <button class="tab-button btn btn-info col-12 col-md m-2" id="show-employees" data-target="#emp-data"
                     onclick="">Employees</button>
                 <button class="tab-button btn btn-info col-12 col-md m-2" id="show-full" data-target="#full-report"
@@ -108,14 +95,29 @@
                 </table>
             </div>
         </div>
-
-        <div class="text-center">
-            <button type="button" id="incoming" class="btn btn-primary btn-lg font-weight-bold">Incoming
-                Requests
-                <i class="fas fa-inbox"></i>
-            </button>
-        </div>
-        <div id="requests" class="container offset-3 col-6 mb-5">
+        <div class="col-12 col-lg-4">
+            <div id="choose-sub-admin" class="text-center mb-5">
+                <button type="button" id="assign-btn" class="btn btn-primary btn-lg font-weight-bold text-primary bg-white w-100" data-toggle="modal"
+                    data-target="#assign-modal">
+                    Assign Attendance Official
+                    <i class="fas fa-address-card ml-2"></i>
+                </button>
+            </div>
+            <div class="text-center">
+                <button type="button" id="incoming" class="btn btn-primary btn-lg font-weight-bold text-primary bg-white w-100">Incoming
+                    Requests
+                    <i class="fas fa-inbox"></i>
+                </button>
+    
+                <div id="requests" class="container-fluid mb-5">
+                </div>
+            </div>
+            <div class="text-center mb-5">
+                <button type="button" class="btn btn-primary btn-lg font-weight-bold text-primary bg-white w-100" id="save">
+                    Save Changes
+                    <span class="text-light ml-1"><i class="fa fa-download text-primary" aria-hidden="true"></i></span>
+                </button>
+            </div>
         </div>
     </div>
 

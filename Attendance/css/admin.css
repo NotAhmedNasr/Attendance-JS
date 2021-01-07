@@ -1,42 +1,67 @@
-#main-div {
-    min-width:1000px;        /* Suppose you want minimum width of 1000px */
-    width: auto !important;  /* Firefox will set width as auto */
-    width:1000px;            /* As IE6 ignores !important it will set width as 1000px; */
-}
 body {
-    background-image: url("../imgs/bg5.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
     min-height: 60em;
 }
 
 #emp-reports {
-    background-color: aliceblue;
-    min-height: 20em;
+    background:rgba(255, 255, 255, 0.8);
+    border-radius: .3em;
+    max-height: fit-content;
+    min-height: 30em;
+    padding-bottom: 2em;
+}
+
+#reports-header {
+    background-color:#439da3;
+    border-bottom-right-radius: .2em;
+    border-bottom-left-radius: .2em;
+    color: white;
 }
 
 .tab-content {
     background-color: white;
 }
 
+.tab-button {
+    background: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+    color: white;
+    font-weight: bold;
+}
+
+.tab-button:hover {
+    background: radial-gradient(circle 248px at center, #0f9299 0%, #269cb9 47%, #46aef7 100%);
+}
+
 .active-tab {
-    background-color: white;
+    background: radial-gradient(circle 248px at center, #ecf4f5 0%, #e6f5f8 47%, #e9f2f8 100%);
     color: black;
     font-weight: bold;
 }
 
 .active-tab:hover {
-    background-color: lightblue;
+    background: radial-gradient(circle 248px at center, #97f3f8 0%, #a9ebfc 47%, #a9dafd 100%);
     color: black;
 }
 
+label {
+    font-weight: bold;
+    background-image: radial-gradient( circle 465px at -15.1% -25%,  rgba(17,130,193,1) 0%, rgba(67,166,238,1) 49%, rgba(126,203,244,1) 90.2% );    
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .request {
-    border: 1px solid lightblue;
-    margin: 10px;
+    border-radius: .5em;
+    margin: .5em .2em;
     padding: 10px;
     color: white;
-    background-color:  rgba(242, 244, 245, 0.3);;
+    background:rgba(255, 255, 255, 0.8);
+}
+
+.request button {
+    margin-top: .5em;
+    margin-left: 1em;
 }
 
 .request label {
@@ -44,12 +69,11 @@ body {
 }
 
 .request span {
-    
-    margin-left: 1em;
+    font-size: large;
 }
 
 #requests {
     overflow-y: scroll;
     overflow-x: auto;
-    max-height: 30em;
+    max-height: 20em;
 }

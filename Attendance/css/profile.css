@@ -3,10 +3,8 @@
 }
 
 body {
-    background-image: url("../imgs/bg5.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+    padding-bottom: 5em;
 }
 
 .tab-content {
@@ -25,26 +23,33 @@ body {
     color: black;
 }
 
-.info span {
-    margin-left: 3em;
-}
-
 label {
     font-size: larger;
     font-weight: bold;
-    text-decoration: underline;
-    text-decoration-color: rgb(228, 255, 255);
+    background-image: radial-gradient( circle 465px at -15.1% -25%,  rgba(17,130,193,1) 0%, rgba(67,166,238,1) 49%, rgba(126,203,244,1) 90.2% );    
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 span {
     font-size: large;
+    font-family: tahoma;
+    text-align: center;
+}
+
+.form-control {
+    
 }
 
 .card {
-    background-color: rgba(242, 244, 245, 0.5);
-    border-radius: 0%;
+    background:rgba(255, 255, 255, 0.8);
+    border-radius: .5em;
+    border: none;
 }
 
 .card-header {
-    background-color: rgb(0, 74, 110);
+    background-color: #ffffffc2;
+    border-radius: .5em;
+    border-top-left-radius: .5em; border-top-right-radius: .5em;
 }

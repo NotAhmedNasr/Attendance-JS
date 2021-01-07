@@ -1,8 +1,5 @@
-body {
-  background-image: url("../imgs/bg5.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+body {   
+  background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
 }
 
 #timer {
@@ -12,6 +9,16 @@ body {
 }
 
 .needs-validation {
-  background-color: rgba(242, 244, 245, 0.5);
+  background:rgba(255, 255, 255, 0.8);
+  border-radius: .5em;
+  padding: 20px;
   padding: 2em 1em;
+}
+
+label {
+  font-weight: bold;
+  background-image: radial-gradient( circle 465px at -15.1% -25%,  rgba(17,130,193,1) 0%, rgba(67,166,238,1) 49%, rgba(126,203,244,1) 90.2% );    
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
