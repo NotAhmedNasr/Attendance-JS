@@ -38,5 +38,15 @@
         "username": "mohAli7963",
         "password": 130345079,
         "subAdmin": false
+    },
+    {
+        "fname": "Ahmed",
+        "lname": "Ali",
+        "address": "312 mahalla",
+        "email": "ahmed@gmail.com",
+        "age": "27",
+        "username": "AhmAli218",
+        "password": 118308193,
+        "subAdmin": false
     }
 ]
