@@ -19,7 +19,13 @@
 </head>
 
 <body>
-    <h1 class="text-center text-light font-weight-bold mb-3 pt-3">Administration</h1>
+    <h1 class="text-center text-light font-weight-bold mb-3 pt-3">
+        Administration
+        <a type="button" id="logout" class="btn btn-primary float-right mr-5 text-primary bg-light" href="Login.html">Logout
+            <i class="fas fa-door-open"></i>
+        </a>
+    </h1>
+    
     <div class="container-fluid row m-0 p-2">
         <div class="container-fluid mb-5 pl-0 pr-0 col-12 col-lg-8" id="emp-reports">
             <h2 class="text-center p-2 mb-4 col-8 offset-2 col-lg-6 offset-lg-3" id="reports-header">Attendance Reports
@@ -113,6 +119,9 @@
                 </button>
 
                 <div id="requests" class="container-fluid mb-5">
+                    <h3 class="text-center text-light d-none" id="no-requests">
+                        No New Requests
+                    </h3>
                 </div>
             </div>
             <div class="text-center mb-5">

@@ -24,35 +24,40 @@ $(function () {
 });
 
 function displayRequests() {
-    for (let i = 0; i < requestsData.length; i++) {
-        var requestHtmlString = `<div class="request container row">
-            <div class="col-md-6">
-                <label>First Name: </label>
-                <span class="form-control">${requestsData[i].fname}</span>
-            </div>
-            <div class="col-md-6">
-                <label>Last Name: </label>
-                <span class="form-control">${requestsData[i].lname}</span>
-            </div>
-            <div class="col-12">
-                <label>Address: </label>
-                <span class="form-control">${requestsData[i].address}</span>
-            </div>
-            <div class="col-12">
-                <label>Email: </label>
-                <span class="form-control">${requestsData[i].email}</span>
-            </div>
-            <div class="col-12">
-                <label>Age: </label>
-                <span class="form-control">${requestsData[i].age}</span>
-            </div>
-            <div class="offset-2 col-8 text-center actions" id=${requestsData[i].email}>
-                <button type="button" class="btn btn-success accept">Accept</button>
-                <button type="button" class="btn btn-danger reject">Reject</button>
-            </div>
-        </div>`;
-        $("#requests").append(requestHtmlString);
+    if (requestsData.length === 0) {
+        $("#no-requests").removeClass("d-none");
+    } else {
+        for (let i = 0; i < requestsData.length; i++) {
+            var requestHtmlString = `<div class="request container row">
+                <div class="col-md-6">
+                    <label>First Name: </label>
+                    <span class="form-control">${requestsData[i].fname}</span>
+                </div>
+                <div class="col-md-6">
+                    <label>Last Name: </label>
+                    <span class="form-control">${requestsData[i].lname}</span>
+                </div>
+                <div class="col-12">
+                    <label>Address: </label>
+                    <span class="form-control">${requestsData[i].address}</span>
+                </div>
+                <div class="col-12">
+                    <label>Email: </label>
+                    <span class="form-control">${requestsData[i].email}</span>
+                </div>
+                <div class="col-12">
+                    <label>Age: </label>
+                    <span class="form-control">${requestsData[i].age}</span>
+                </div>
+                <div class="offset-2 col-8 text-center actions" id=${requestsData[i].email}>
+                    <button type="button" class="btn btn-success accept">Accept</button>
+                    <button type="button" class="btn btn-danger reject">Reject</button>
+                </div>
+            </div>`;
+            $("#requests").append(requestHtmlString);
+        }
     }
+
 }
 
 function saveAsEmployee(newEmployee) {
@@ -96,7 +101,7 @@ function getEmployeeByEmail(email) {
 function acceptHandler(e) {
     var { employeeEmail, currentRequest } = getRequest(e);
     var newEmployee = getEmployeeByEmail(employeeEmail);
-    const {email, username, password} = saveAsEmployee(newEmployee);
+    const { email, username, password } = saveAsEmployee(newEmployee);
     currentRequest.slideUp(500);
     removeRequestByEmail(employeeEmail);
     sendCredintials(email, username, password);
